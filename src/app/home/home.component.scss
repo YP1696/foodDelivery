@@ -1,0 +1,48 @@
+ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+}
+li a{
+    height: 22.5rem;
+    width: 18rem;
+    border: 1px solid whitesmoke;
+    border-radius: 1rem;
+    margin: 0.5rem;
+    display: flex;
+    overflow: hidden;
+    color: #e72929;
+    flex-direction: column;
+}
+li a:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+li a img{
+    object-fit: cover;
+    height: 14.5rem;
+  }
+.name-favorite{
+    display: flex;
+    justify-content: space-between;
+}
+.time-currency{
+    display: flex;
+    justify-content: space-between;
+}
+.favorite{
+    color: #e72929;
+}
+.favorite.not{
+    color: black;
+}
+.origins{
+    color: gray;
+    font-size: .8rem;
+}
+.name{
+    color: gray;
+}
