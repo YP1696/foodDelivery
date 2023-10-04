@@ -1,28 +1,28 @@
 import { Injectable } from '@angular/core';
 import { foods } from 'src/app/shared/model/food';
+import { tag } from 'src/app/shared/model/tag';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FoodserviceService {
+  constructor() {}
 
-  constructor() { }
-
-  getAll():foods[]{
-    return[
+  getAll(): foods[] {
+    return [
       {
-        id:1,
+        id: 1,
         name: 'Pizza Pepperoni',
         cookingTime: '10-20',
         price: 10,
         favorite: true,
-        origins: ['italy'], 
+        origins: ['italy'],
         stars: 4.5,
         imageUrl: 'assets/pizza.jpg',
         tags: ['FastFood', 'Pizza', 'Lunch'],
       },
       {
-        id:2,
+        id: 2,
         name: 'Meatball',
         price: 20,
         cookingTime: '20-30',
@@ -33,7 +33,7 @@ export class FoodserviceService {
         tags: ['SlowFood', 'Lunch'],
       },
       {
-        id:3,
+        id: 3,
         name: 'thali',
         price: 5,
         cookingTime: '10-15',
@@ -44,7 +44,7 @@ export class FoodserviceService {
         tags: ['FastFood', 'Hamburger'],
       },
       {
-        id:4,
+        id: 4,
         name: 'Fried Potatoes',
         price: 2,
         cookingTime: '15-20',
@@ -55,7 +55,7 @@ export class FoodserviceService {
         tags: ['FastFood', 'Fry'],
       },
       {
-        id:5,
+        id: 5,
         name: 'Chicken Soup',
         price: 11,
         cookingTime: '40-50',
@@ -66,7 +66,7 @@ export class FoodserviceService {
         tags: ['SlowFood', 'Soup'],
       },
       {
-        id:6,
+        id: 6,
         name: 'Vegetables Pizza',
         price: 9,
         cookingTime: '40-50',
@@ -77,7 +77,7 @@ export class FoodserviceService {
         tags: ['FastFood', 'Pizza', 'Lunch'],
       },
       {
-        id:7,
+        id: 7,
         name: 'Spicy Cheese Burger',
         price: 12,
         cookingTime: '20-30',
@@ -88,7 +88,7 @@ export class FoodserviceService {
         tags: ['FastFood', 'Burger', 'Lunch'],
       },
       {
-        id:8,
+        id: 8,
         name: 'Vegetables Magento Pizza',
         price: 9,
         cookingTime: '45-50',
@@ -97,7 +97,29 @@ export class FoodserviceService {
         stars: 4.0,
         imageUrl: 'assets/pizza.jpg',
         tags: ['FastFood', 'Pizza', 'Lunch'],
-      }
-    ]
+      },
+    ];
+  }
+  getAllFoodByTag(tag: string): foods[] {
+    return tag == 'All'
+      ? this.getAll()
+      : this.getAll().filter((food) => food.tags?.includes(tag));
+    // if(tag == 'All'){
+    //   return this.getAll();
+    // }else{
+    //   return this.getAll().filter(food => food.tags?.includes(tag))
+    // }
+  }
+  getAllTag(): tag[] {
+    return [
+      { name: 'All', count: 8 },
+      { name: 'FastFood', count: 4 },
+      { name: 'Pizza', count: 3 },
+      { name: 'Lunch', count: 3 },
+      { name: 'SlowFood', count: 2 },
+      { name: 'Hamburger', count: 2 },
+      { name: 'Fry', count: 1 },
+      { name: 'Soup', count: 1 },
+    ];
   }
 }
